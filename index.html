@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClimaTic | Mapa Meteorológico</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+          href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+</head>
+<body>
+
+    <header class="topbar">
+        <a class="brand" href="#">
+            <span class="brand-icon">☁</span>
+            <span>Clima<span class="accent">Tic</span></span>
+        </a>
+
+        <span class="status">
+            <span class="dot"></span>
+            Mapa meteorológico global
+        </span>
+    </header>
+
+    <main class="container">
+
+        <section class="intro">
+            <p class="eyebrow">Elaborado por: Rosario Elizabeth Hdz Hdz</p>
+            <h1>El tiempo, <span>en cualquier lugar.</span></h1>
+            <p>
+                Busca una ciudad y consulta sus condiciones meteorológicas
+                actuales sobre un mapa interactivo.
+            </p>
+        </section>
+
+        <section class="search-panel">
+            <form id="search-form">
+                <label for="place-input">Buscar ubicación</label>
+
+                <div class="search-row">
+                    <input
+                        type="text"
+                        id="place-input"
+                        placeholder="Ej. Toluca, Ciudad de México, Madrid"
+                        required
+                    >
+
+                    <button id="search-button" type="submit">
+                        Buscar ubicación →
+                    </button>
+                </div>
+            </form>
+
+            <p class="hint">
+                Escribe el nombre de una ciudad o localidad.
+            </p>
+        </section>
+
+        <div id="message" class="message" role="status">
+            Busca una ubicación para comenzar.
+        </div>
+
+        <section class="dashboard">
+
+            <article class="weather-panel">
+
+                <div class="panel-heading">
+                    <div>
+                        <p class="eyebrow">CONDICIONES ACTUALES</p>
+                        <h2 id="place-name">Sin ubicación seleccionada</h2>
+                        <p id="place-detail" class="muted">
+                            Los datos aparecerán aquí.
+                        </p>
+                    </div>
+
+                    <div id="weather-symbol" class="weather-symbol">
+                        ☁️
+                    </div>
+                </div>
+
+                <div class="temperature-line">
+                    <div id="temperature" class="temperature">
+                        --<span>°C</span>
+                    </div>
+
+                    <div>
+                        <p id="condition" class="condition">
+                            Esperando búsqueda
+                        </p>
+                        <p id="feels-like" class="muted">
+                            Sensación térmica: -- °C
+                        </p>
+                    </div>
+                </div>
+
+                <div class="metrics">
+
+                    <div class="metric">
+                        <span class="metric-icon">💧</span>
+                        <div>
+                            <p>Humedad</p>
+                            <strong id="humidity">--%</strong>
+                        </div>
+                    </div>
+
+                    <div class="metric">
+                        <span class="metric-icon">🌬️</span>
+                        <div>
+                            <p>Viento</p>
+                            <strong id="wind">-- km/h</strong>
+                        </div>
+                    </div>
+
+                    <div class="metric">
+                        <span class="metric-icon">🌡️</span>
+                        <div>
+                            <p>Presión</p>
+                            <strong id="pressure">-- hPa</strong>
+                        </div>
+                    </div>
+
+                    <div class="metric">
+                        <span class="metric-icon">☀️</span>
+                        <div>
+                            <p>Radiación UV</p>
+                            <strong id="uv">--</strong>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="coordinates">
+                    <span>Coordenadas</span>
+                    <strong id="coordinates">Lat: -- · Lon: --</strong>
+                </div>
+
+            </article>
+
+            <article class="map-panel">
+
+                <div class="map-heading">
+                    <div>
+                        <p class="eyebrow">EXPLORACIÓN GEOGRÁFICA</p>
+                        <h2>Mapa interactivo</h2>
+                    </div>
+
+                    <span class="map-tag">OpenStreetMap</span>
+                </div>
+
+                <div id="map"></div>
+
+                <p class="map-caption">
+                    El mapa se centrará automáticamente en la ubicación buscada.
+                </p>
+
+            </article>
+
+        </section>
+
+        <footer>
+            <span>Clima · Elaborado por: Rosario Elizabeth Hdz Hdz</span>
+            <span></span>
+        </footer>
+
+    </main>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="app.js"></script>
+
+</body>
+</html>
